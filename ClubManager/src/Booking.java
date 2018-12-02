@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Booking {
 	Member member;
@@ -24,6 +25,10 @@ public class Booking {
 		if (fromdate.isAfter(enddate)) {
 			throw new BadBookingException("Your fromdate is later than enddate");
 		}
+	}
+
+	public Booking(Member m1, Facility f1, LocalDateTime fromdate2, LocalDateTime enddate2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Member getMember() {
