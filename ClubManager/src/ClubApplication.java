@@ -26,9 +26,8 @@ public class ClubApplication {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MM-yyyy");
 		LocalDate fromdate = LocalDate.parse("8-03-2018", formatter);
 		LocalDate enddate = LocalDate.parse("16-03-2018", formatter);
-		String bb = fromdate.format(formatter);
 		Booking b1 = new Booking(m1, f1, fromdate, enddate);
-		System.out.println(bb);
+		System.out.println(b1);
 
 	}
 
