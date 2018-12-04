@@ -89,20 +89,25 @@ public class Club {
 	public void addBooking(int mid, String facilityName, LocalDate fromdate, LocalDate enddate)
 			throws BadBookingException {
 		Member member = null;
+		// according to the mid search the member
 		for (int i = 0; i < members.size(); i++) {
 			if (members.get(i).getMemberNumber() == mid)
 				member = members.get(i);
 		}
+		// according to the facilityName search the facility
 		Facility facility = facilities.get(facilityName);
+		// here we use bookingregister's method addBooking
 		Cb1.addBooking(member, facility, fromdate, enddate);
 
 	}
 //show all the bookings of the club
 
 	public void showBookings(String facilityName, LocalDate fromdate, LocalDate enddate) {
-
+		// according to the facilityName search the facility
 		Facility facility = facilities.get(facilityName);
+		// use facilty get hashmap Cb1's this facility's booking list
 		ArrayList<Booking> bookings = Cb1.get(facility);
+		// show the booking number
 		System.out.println(bookings.size());
 		Iterator<Booking> iterator = bookings.iterator();
 		while (iterator.hasNext()) {

@@ -65,6 +65,10 @@ public class Booking {
 	public boolean overlaps(Booking b) {
 		boolean x = false;
 		if ((b.facility == this.facility)) {
+			// assume we have two booking only when B booking's enddate is before A's
+			// startdate or
+			// B's startdate is after A's end ,it won't have a overlaps,so on the opposite
+			// is overlap
 			if (!(b.enddate.isBefore(this.fromdate) || b.fromdate.isAfter(this.enddate)))
 				x = true;
 		}
