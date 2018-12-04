@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class ClubApplication {
-
+//test
 	public static void main(String[] args) throws BadBookingException {
 		Person p1 = new Person("dai", "chujian", "daipp");
 		Facility f1 = new Facility("desk1");

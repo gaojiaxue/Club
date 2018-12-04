@@ -5,29 +5,34 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class Club {
+	// variable
 	private int i = 0;
 	private ArrayList<Member> members = new ArrayList<Member>();
 	private static HashMap<String, Facility> facilities = new HashMap<String, Facility>();
 	HashMap<Facility, ArrayList<Booking>> bookinglist = new HashMap<Facility, ArrayList<Booking>>();
 	private BookingRegister Cb1 = new BookingRegister(bookinglist);
 
+	// add a new member
 	public void addMember(String surName, String firstName, String secondName) {
 		i = members.size();
 		Member m = new Member(surName, firstName, secondName, i);
 		members.add(m);
 	}
 
+	// show member
 	public void showMemembers() {
 		for (Member current : members)
 			System.out.println(current);
 
 	}
 
+	// remove member
 	public void removeMember(int Mid) {
 		members.remove(Mid);
 
 	}
 
+//sort member
 	public void sortByMember() {
 		int c;
 		for (int i = 0; i < members.size() - 1; i++) {
@@ -38,33 +43,39 @@ public class Club {
 		}
 	}
 
+//add facility
 	public void addFacility(String facilityName, Facility facility) {
 		facilities.put(facilityName, facility);
 
 	}
 
+//remove facility
 	public void removeFacility(String facilityName) {
 		facilities.remove(facilityName);
 
 	}
 
+//get
 	public Facility getFacility(String facilityName) {
 		return facilities.get(facilityName);
 
 	}
 
+//get all
 	public HashMap<String, Facility> getFacilities() {
 
 		return facilities;
 
 	}
 
+//show
 	public void showFacilities() {
 		for (Object key : facilities.keySet()) {
 			System.out.println(key + " : " + facilities.get(key));
 		}
 	}
 
+//show all of club
 	public void show() {
 		for (Object key : facilities.keySet()) {
 			System.out.println(key + " : " + facilities.get(key));
@@ -74,6 +85,7 @@ public class Club {
 
 	}
 
+//add new booking of the club
 	public void addBooking(int mid, String facilityName, LocalDate fromdate, LocalDate enddate)
 			throws BadBookingException {
 		Member member = null;
@@ -85,17 +97,7 @@ public class Club {
 		Cb1.addBooking(member, facility, fromdate, enddate);
 
 	}
-
-	public void getBookings(String facilityName, LocalDate fromdate, LocalDate enddate) {
-		Iterator it = facilities.keySet().iterator();
-		while (it.hasNext()) {
-			String key = it.next().toString();
-			ArrayList<Booking> pr = new ArrayList<Booking>();
-			bookinglist.put(facilities.get(key), pr);
-		}
-		Facility facility = getFacility(facilityName);
-		ArrayList<Booking> bookings = bookinglist.get(facility);
-	}
+//show all the bookings of the club
 
 	public void showBookings(String facilityName, LocalDate fromdate, LocalDate enddate) {
 

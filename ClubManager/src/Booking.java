@@ -1,12 +1,13 @@
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Booking {
+	// attributes
 	Member member;
 	Facility facility;
 	LocalDate fromdate;
 	LocalDate enddate;
 
+	// constructor
 	public Booking(Member member, Facility facility, LocalDate fromdate, LocalDate enddate) throws BadBookingException {
 		super();
 		this.member = member;
@@ -16,9 +17,9 @@ public class Booking {
 		if (member == null) {
 			throw new BadBookingException("input a member");
 		}
-//		if (facility==null) {
-//			throw new BadBookingException("input a facility");
-//		}
+		if (facility == null) {
+			throw new BadBookingException("input a facility");
+		}
 		if (fromdate == null || enddate == null) {
 			throw new BadBookingException("input date");
 		}
@@ -27,10 +28,7 @@ public class Booking {
 		}
 	}
 
-	public Booking(Member m1, Facility f1, LocalDateTime fromdate2, LocalDateTime enddate2) {
-		// TODO Auto-generated constructor stub
-	}
-
+//property
 	public Member getMember() {
 		return member;
 	}
@@ -63,6 +61,7 @@ public class Booking {
 		this.enddate = enddate;
 	}
 
+//test if two booking conflict
 	public boolean overlaps(Booking b) {
 		boolean x = false;
 		if ((b.facility == this.facility)) {
@@ -72,6 +71,7 @@ public class Booking {
 		return x;
 	}
 
+//show
 	@Override
 	public String toString() {
 		return "Booking [member=" + member + ", facility=" + facility + ", fromdate=" + fromdate + ", enddate="

@@ -1,7 +1,9 @@
 
 public class Member extends Person implements Comparable<Member> {
+	// attribute
 	private int memberNumber;
 
+//constructor
 	public Member(String surName, String firstName, String secondName, int memberNumber) {
 		super(surName, firstName, secondName);
 		this.memberNumber = memberNumber;
@@ -15,15 +17,12 @@ public class Member extends Person implements Comparable<Member> {
 		this.memberNumber = memberNumber;
 	}
 
+//show
 	public String toString() {
 		return "Member [memberNumber=" + memberNumber + ", toString()=" + super.toString() + "]";
 	}
 
-	public void show() {
-		System.out.println(
-				this.surName + this.firstName + (this.secondName != null ? this.secondName : "") + this.memberNumber);
-	}
-
+	// compare memberid
 	public int compareTo(Member o) {
 		return (getMemberNumber() - o.getMemberNumber());
 	}
